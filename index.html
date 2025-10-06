@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Link Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔗 Text Link Generator</h1>
+        <p class="description">Nhập text vào ô dưới và tạo link để copy text vào clipboard</p>
+        
+        <div class="input-section">
+            <textarea 
+                id="textInput" 
+                placeholder="Nhập text bạn muốn tạo link..."
+                rows="4"
+            ></textarea>
+            <button id="generateBtn" onclick="generateLink()">Tạo Link</button>
+        </div>
+        
+        <div class="result-section" id="resultSection" style="display: none;">
+            <h3>Link của bạn:</h3>
+            <div class="link-container">
+                <input type="text" id="generatedLink" readonly>
+                <button id="copyLinkBtn" onclick="copyLink()">Copy Link</button>
+            </div>
+            <div class="preview-section">
+                <h4>Preview:</h4>
+                <a href="#" id="previewLink" target="_blank" onclick="testLink()">Test Link</a>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h3>📋 Cách sử dụng:</h3>
+            <ol>
+                <li>Nhập text vào ô trên</li>
+                <li>Bấm "Tạo Link"</li>
+                <li>Copy link được tạo</li>
+                <li>Gửi link cho người khác</li>
+                <li>Khi họ bấm vào link, text sẽ được copy vào clipboard</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
