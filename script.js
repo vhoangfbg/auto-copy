@@ -122,8 +122,36 @@ function handleTextParameter() {
     }
 }
 
+// Theme Management
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+}
+
+function updateThemeIcon(theme) {
+    const themeIcon = document.querySelector('.theme-icon');
+    themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+}
+
 // Chạy khi trang load
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize theme
+    initTheme();
+    
+    // Add theme toggle event listener
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    
+    // Handle text parameter
     handleTextParameter();
     
     // Thêm event listener cho Enter key

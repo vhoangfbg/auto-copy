@@ -3,45 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Link Generator</title>
+    <title>Copy Link Generator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>🔗 Text Link Generator</h1>
-        <p class="description">Nhập text vào ô dưới và tạo link để copy text vào clipboard</p>
-        
-        <div class="input-section">
-            <textarea 
-                id="textInput" 
-                placeholder="Nhập text bạn muốn tạo link..."
-                rows="4"
-            ></textarea>
-            <button id="generateBtn" onclick="generateLink()">Tạo Link</button>
-        </div>
-        
-        <div class="result-section" id="resultSection" style="display: none;">
-            <h3>Link của bạn:</h3>
-            <div class="link-container">
-                <input type="text" id="generatedLink" readonly>
-                <button id="copyLinkBtn" onclick="copyLink()">Copy Link</button>
+    <div class="app">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">C</div>
+                <span class="logo-text">Copy</span>
             </div>
-            <div class="preview-section">
-                <h4>Preview:</h4>
-                <a href="#" id="previewLink" target="_blank" onclick="testLink()">Test Link</a>
-            </div>
-        </div>
+            <button class="theme-toggle" id="themeToggle">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </header>
         
-        <div class="info-section">
-            <h3>📋 Cách sử dụng:</h3>
-            <ol>
-                <li>Nhập text vào ô trên</li>
-                <li>Bấm "Tạo Link"</li>
-                <li>Copy link được tạo</li>
-                <li>Gửi link cho người khác</li>
-                <li>Khi họ bấm vào link, text sẽ được copy vào clipboard</li>
-            </ol>
-        </div>
+        <main class="main">
+            <div class="hero">
+                <h1 class="title">Tạo Link Copy Text</h1>
+                <p class="subtitle">Nhập text và tạo link để tự động copy vào clipboard</p>
+            </div>
+            
+            <div class="input-card">
+                <div class="input-group">
+                    <label for="textInput" class="input-label">Text của bạn</label>
+                    <textarea 
+                        id="textInput" 
+                        placeholder="Nhập text bạn muốn tạo link..."
+                        rows="4"
+                        class="text-input"
+                    ></textarea>
+                </div>
+                <button id="generateBtn" class="generate-btn" onclick="generateLink()">
+                    <span class="btn-icon">🔗</span>
+                    Tạo Link
+                </button>
+            </div>
+            
+            <div class="result-card" id="resultSection" style="display: none;">
+                <div class="result-header">
+                    <h3 class="result-title">Link của bạn</h3>
+                    <div class="result-badge">Sẵn sàng</div>
+                </div>
+                
+                <div class="link-group">
+                    <div class="link-input-wrapper">
+                        <input type="text" id="generatedLink" class="link-input" readonly>
+                        <button id="copyLinkBtn" class="copy-btn" onclick="copyLink()">
+                            <span class="copy-icon">📋</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="preview-group">
+                    <label class="preview-label">Preview</label>
+                    <a href="#" id="previewLink" class="preview-link" target="_blank" onclick="testLink()">
+                        <span class="preview-icon">🔗</span>
+                        Test Link
+                    </a>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h3 class="info-title">Cách sử dụng</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-text">Nhập text vào ô trên</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-text">Bấm "Tạo Link"</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-text">Copy link được tạo</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-text">Gửi link cho người khác</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-text">Text sẽ tự động copy khi họ bấm link</div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
     
     <script src="script.js"></script>
